@@ -8,98 +8,62 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default function DrawerScreen({navigation}) {
-  function gotosmall (){
-   navigation.navigate('Example')
+const DrawerScreen = ({navigation}) => {
+  function Splash() {
+    navigation.replace('Signup');
   }
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
-      <View style={styles.sec_container}>
-        <ImageBackground
-          style={styles.sec_bg}
-          source={require('../images/sec-bg.png')}
-          resizeMode="cover">
-          <View style={styles.user_text}>
-            <Text style={styles.jaykey}>Hi Jaykey!</Text>
-            <Text style={styles.what}>What pizza do you</Text>
-            <Text style={styles.want}>Want to try today</Text>
-          </View>
-        </ImageBackground>
+    <View>
+      <View style={styles.logo_div}>
+        <Image source={require('../images/saylani.png')} />
+        <Text style={styles.logo_text}>SAYLANI WELFARE</Text>
+        <Text style={styles.logo_twotext}>ONLINE DISCOUNT STORE</Text>
       </View>
-      <View style={styles.third_container}>
-        <Image
-          style={styles.half_pizza}
-          source={require('../images/h_pizza.png')}
-        />
-        <View style={styles.fourth_container}>
-          <Text style={styles.reorder}>Reorder again?</Text>
-          <Text style={styles.small}>
-            SMALL, THIN CRUST, TOMATOES , BASIL, CHEESE
-          </Text>
-          <Text style={styles.$}>$12</Text>
-          <TouchableOpacity style={styles.cart}>
-            <LinearGradient
-              colors={['#F5313F', '#FFA360']}
-              style={styles.linearGradient}>
-              <Text style={styles.buttonText}>Add To Cart</Text>
-            </LinearGradient>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={styles.last_container}>
-        <View>
-          <Text style={styles.own} onPress={gotosmall}>Create your own pizza</Text>
-          <Text style={styles.cost}>
-            THE COST WILL DEPEND IN YOUR CUSTOMIZATION
-          </Text>
-          <Image
-            style={styles.half_pizza}
-            source={require('../images/f_pizza.png')}
-          />
-        </View>
+      <View>
+        <TouchableOpacity onPress={Splash} style={styles.button_div}>
+          <Text style={styles.button}> GET STARTED</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
+  logo_div: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 650,
+    // backgroundColor: 'orange',
   },
-  text_container: {
-    flex: 1,
+  logo_text: {
+    color: '#61B846',
+    fontWeight: '700',
+    fontSize: 30,
+    marginTop: 30,
   },
-  menu: {
-    width: 22,
-    height: 20,
-    marginLeft: 18,
-    marginTop: 18,
+  logo_twotext: {
+    color: '#024F9D',
+    fontWeight: '600',
+    fontSize: 15,
   },
-  Vector: {
-    width: 25,
-    height: 25,
-    marginTop: 18,
-    marginRight: 15,
+  button_div: {
+    marginTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    // flex:1,
+    // backgroundColor: 'orange',
+    // height: 320,
   },
-  deliver: {
-    fontWeight: '300',
-    paddingTop: 8,
-    paddingLeft: 12,
-    color: 'black',
-  },
-  home: {
-    fontWeight: 'bold',
-    marginTop: -3,
-    paddingLeft: 12,
-    color: 'black',
-  },
-  sec_container: {
-    marginTop: 6,
-  },
-  sec_bg: {
-    width: 425,
-    height: 220,
+  button: {
+    backgroundColor: '#61B846',
+    fontWeight: '700',
+    fontSize: 15,
+    color: 'white',
+    padding: 12,
+    borderRadius: 8,
+    marginTop: 90,
+    width: 150,
+    textAlign: 'center',
   },
   text: {
     color: 'white',
@@ -211,7 +175,7 @@ const styles = StyleSheet.create({
     marginVertical: 6,
   },
 });
-
+export default DrawerScreen;
 // function NotificationsScreen({ navigation }) {
 //   return (
 //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
